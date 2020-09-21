@@ -1,0 +1,48 @@
+body {
+	display:grid;
+	margin-bottom:10px;
+
+	grid-template-columns:300px 200px;
+	grid-template-rows:auto auto;
+
+	header {
+		box-sizing:border-box;
+		margin:0 auto;
+		padding:0;
+		background:linear-gradient(to left top, blue, red);
+		color:#ffffff;
+		font-size:18px;
+
+		grid-column:1 / 2;
+		grid-row:1;
+		grid:repeat(2, 60px) / auto-flow 80px;
+
+		@media (min-width:300px) {
+			font-weight:200;
+		}
+
+		@media (min-width:600px) {
+			font-weight:200;
+		}
+
+		@media (max-width:500px) {
+			font-size:30px;
+		}
+
+		@media (max-width:700px) {
+			font-size:40px;
+		}
+	}
+
+	footer {
+		font-size:20px;
+
+		@media (max-width:700px) {
+			font-size:30px;
+		}
+
+		@media (max-width:500px) {
+			font-size:40px;
+		}
+	}
+}
