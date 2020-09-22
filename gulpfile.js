@@ -7,6 +7,9 @@ const {
   parallel //平行して処理
 } = require("gulp");
 
+// ファイルの削除
+const del = require("del");
+
 // Sassコンパイル
 const sass = require("gulp-sass");
 const sassGlob = require('gulp-sass-glob');
@@ -20,6 +23,10 @@ const cleanCss = require('gulp-clean-css');
 const rename = require("gulp-rename");
 const styleLint = require('gulp-stylelint');
 
+// JavaScript処理
+const babel = require("gulp-babel");
+const uglify = require("gulp-uglify");
+
 // 画像圧縮
 const imagemin = require("gulp-imagemin");
 const imageminMozjpeg = require("imagemin-mozjpeg");
@@ -27,7 +34,7 @@ const imageminPngquant = require("imagemin-pngquant");
 const imageminSvgo = require("imagemin-svgo");
 
 // ブラウザ同期
-const browserSync = require('browser-sync');
+const browserSync = require('browser-sync').create();
 
 //本番(production)と開発(development)で処理を分ける
 const mode = require("gulp-mode")({
@@ -86,11 +93,30 @@ const compileSass = () => {
     .pipe(dest(paths.styles.dist))
     .pipe(cleanCss())
     .pipe(rename({
-      suffix: '.min'
+      extname: '.min.css'
     }))
     .pipe(dest(paths.styles.dist, {
       sourcemaps: "./map"
     }));
+};
+
+// JavaScriptコンパイル
+const jsBabel = () => {
+  return src(paths.scripts.src)
+    .pipe(
+      plumber({
+        errorHandler: notify.onError('Error: <%= error.message %>')
+      })
+    )
+    .pipe(babel({
+      presets: ['@babel/preset-env']
+    }))
+    .pipe(dest(paths.scripts.dist))
+    .pipe(uglify())
+    .pipe(rename({
+      extname: '.min.js'
+    }))
+    .pipe(dest(paths.scripts.dist));
 };
 
 // 画像圧縮
@@ -99,7 +125,7 @@ const imagesFunc = () => {
       since: lastRun(imagesFunc)
     })
     .pipe(plumber({
-      errorHandler: notify.onError("<%= error.message %>")
+      errorHandler: notify.onError("Error: <%= error.message %>")
     }))
     .pipe(
       imagemin([
@@ -121,32 +147,36 @@ const imagesFunc = () => {
     .pipe(dest(paths.images.dist));
 };
 
-// ブラウザの読み込み処理
-const browserSyncFunc = () => {
+// ブラウザシンク 同期処理
+const browserSyncFunc = (done) => {
   browserSync.init({
-    port: 8080,
-    notify: false,
+    notify: false, //connectedのメッセージ非表示
     server: {
-      baseDir: "./",
-      // browser: ['google chrome'],//ブラウザの指定
-      index: "index.html"
+      baseDir: "./"
     },
     reloadOnRestart: true
   });
+  done();
 };
 
-// リロードの処理
-const browserReloadFunc = () => {
-  browserSync.reload({
-    stream: true
-  });
+// ブラウザシンク リロード処理
+const browserReloadFunc = (done) => {
+  browserSync.reload();
+  done();
 };
 
 // ファイル監視
 const watchFiles = () => {
   watch(paths.html.src, browserReloadFunc);
   watch(paths.styles.src, series(compileSass, browserReloadFunc));
+  watch(paths.scripts.src, series(jsBabel, browserReloadFunc));
   watch(paths.images.src, series(imagesFunc, browserReloadFunc));
 };
 
+// マップファイル除去
+const cleanMap = () => {
+  return del([paths.styles.map, paths.scripts.map]);
+};
+
 exports.default = parallel(watchFiles, browserSyncFunc);
+exports.cleanmap = cleanMap;

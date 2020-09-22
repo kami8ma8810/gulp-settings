@@ -1,21 +1,23 @@
 body {
-	display:grid;
-	margin-bottom:10px;
-
-	grid-template-columns:300px 200px;
-	grid-template-rows:auto auto;
-
 	header {
 		box-sizing:border-box;
 		margin:0 auto;
-		padding:0;
+		padding:8px;
 		background:linear-gradient(to left top, blue, red);
 		color:#ffffff;
-		font-size:18px;
 
-		grid-column:1 / 2;
-		grid-row:1;
-		grid:repeat(2, 60px) / auto-flow 80px;
+		h1 {
+			font-size:30px;
+		}
+
+		h2 {
+			font-size:20px;
+		}
+
+		p {
+			font-weight:700;
+			font-size:20px;
+		}
 
 		@media (min-width:300px) {
 			font-weight:200;
