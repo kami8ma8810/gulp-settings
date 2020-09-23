@@ -1,3 +1,3 @@
 # gulp-settings
 
-##gulp4
+## gulp4の書き方、廃止されたパッケージは使用しない
