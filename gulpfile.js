@@ -74,14 +74,12 @@ const paths = {
 // htmlフォーマット
 const htmlBeautifyFunc = () => {
   var formatOptions = {
-    indentSize: 8,
-    indent_with_tabs: false
+    indent_with_tabs: true
   };
   return src(paths.html.src)
     .pipe(htmlBeautify(formatOptions))
     .pipe(dest(paths.html.dist));
 };
-
 
 // Sassコンパイル
 const compileSass = () => {
