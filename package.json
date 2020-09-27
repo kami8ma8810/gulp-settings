@@ -52,5 +52,8 @@
     "Firefox ESR",
     "Android >= 5",
     "not dead"
-  ]
+  ],
+  "dependencies": {
+    "gulp-html-beautify": "^1.0.1"
+  }
 }

@@ -10,6 +10,9 @@ const {
 // ファイルの削除
 const del = require("del");
 
+// htmlフォーマット
+const htmlBeautify = require("gulp-html-beautify");
+
 // Sassコンパイル
 const sass = require("gulp-sass");
 const sassGlob = require('gulp-sass-glob');
@@ -18,10 +21,9 @@ const plumber = require('gulp-plumber');
 const postCss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssDeclSort = require('css-declaration-sorter');
-const mqpacker = require('css-mqpacker');
 const cleanCss = require('gulp-clean-css');
 const rename = require("gulp-rename");
-const styleLint = require('gulp-stylelint');
+// const styleLint = require('gulp-stylelint');
 
 // JavaScript処理
 const babel = require("gulp-babel");
@@ -46,9 +48,10 @@ const mode = require("gulp-mode")({
 //読み込むパスと出力するパスを指定
 const paths = {
   html: {
-    src: "index.html",
+    // src: "index.html",
+    src: "./src/html/*.html",
     // src: ["./ejs/**/*.ejs", "!" + "./ejs/**/_*.ejs"],
-    dist: "./"
+    dist: "./dist/html/"
   },
   styles: {
     src: "./src/scss/**/*.scss",
@@ -67,6 +70,18 @@ const paths = {
     dist: "./dist/img/"
   }
 };
+
+// htmlフォーマット
+const htmlBeautifyFunc = () => {
+  var formatOptions = {
+    indentSize: 8,
+    indent_with_tabs: false
+  };
+  return src(paths.html.src)
+    .pipe(htmlBeautify(formatOptions))
+    .pipe(dest(paths.html.dist));
+};
+
 
 // Sassコンパイル
 const compileSass = () => {
@@ -167,7 +182,7 @@ const browserReloadFunc = (done) => {
 
 // ファイル監視
 const watchFiles = () => {
-  watch(paths.html.src, browserReloadFunc);
+  watch(paths.html.src, series(htmlBeautifyFunc, browserReloadFunc));
   watch(paths.styles.src, series(compileSass, browserReloadFunc));
   watch(paths.scripts.src, series(jsBabel, browserReloadFunc));
   watch(paths.images.src, series(imagesFunc, browserReloadFunc));
