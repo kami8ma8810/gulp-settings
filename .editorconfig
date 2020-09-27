@@ -1,0 +1,56 @@
+# ルートの設定（.editorconfigはプロジェクトのルートに置くと良いです）
+root = true
+
+# 改行コードと改行後ろの空白削除の有無を指定したいとき
+[*]
+indent_style = space
+indetnt_size=2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# 特定の複数拡張子を指定するとき
+# 文字コードの設定するとき
+[*.{js,py}]
+charset = utf-8
+
+# スペース4つのインデントにしたいとき
+[*.py]
+indent_style = space
+indent_size = 4
+
+# タブインデントにしたいとき
+[Makefile]
+indent_style = tab
+
+# libディレクトリ配下の~.jsにのみ適用させたいとき
+[lib/**.js]
+indent_style = space
+indent_size = 2
+
+# package.jsonまたは.travis.ymlに合致しているとき
+[{package.json,.travis.yml}]
+indent_style = space
+indent_size = 2
+指定内容
+indent_style（インデント）
+tab または space
+
+indent_size（インデントサイズ）
+数値指定
+
+tab_width(タブ幅)
+数値指定
+インデントをタブで選択したときのみ、指定可能
+
+charset（文字コード）
+latin1, utf-8, utf-8-bom, utf-16be, utf-16le
+のいずれか
+
+end_of_line(改行コード)
+lf, cr, crlf
+のいずれか
+
+trim_trailing_whitespace(行末スペースを削除)
+true または false
