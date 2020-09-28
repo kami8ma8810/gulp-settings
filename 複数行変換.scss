@@ -1,0 +1,43 @@
+// Variables
+$container-bg: #eee;
+$font-size-base: 14px;
+$line-height-computed: 1.4;
+$lines-to-show: 3;
+
+// Reset
+p {
+  margin: 0;
+}
+
+// Multiline text with ellipsis
+// Supported IE and Firefox
+.container {
+  background: #eee;
+  overflow: hidden;
+  width: 100%;
+
+  p {
+    font-size: $font-size-base;
+    height: $font-size-base * $line-height-computed * $lines-to-show;
+    line-height: $line-height-computed;
+    position: relative;
+
+    &:before,
+    &:after {
+      background: #eee;
+      position: absolute;
+    }
+
+    &:before {
+      content: "...";
+      top: $font-size-base * $line-height-computed * ($lines-to-show - 1);
+      right: 0;
+    }
+
+    &:after {
+      content: "";
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
