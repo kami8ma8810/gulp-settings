@@ -21,6 +21,10 @@ const plumber = require('gulp-plumber');
 const postCss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssDeclSort = require('css-declaration-sorter');
+<<<<<<< HEAD
+=======
+const gcmq = require('gulp-group-css-media-queries');
+>>>>>>> 職場
 const cleanCss = require('gulp-clean-css');
 const rename = require("gulp-rename");
 // const styleLint = require('gulp-stylelint');
@@ -100,9 +104,9 @@ const compileSass = () => {
       }),
       cssDeclSort({
         order: 'smacss'
-      }),
-      mqpacker()
+      })
     ]))
+    .pipe(gcmq())
     .pipe(dest(paths.styles.dist))
     .pipe(cleanCss())
     .pipe(rename({
