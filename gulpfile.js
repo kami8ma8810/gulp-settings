@@ -10,8 +10,9 @@ const {
 // ファイルの削除
 const del = require("del");
 
-// htmlフォーマット
+// html
 const htmlBeautify = require("gulp-html-beautify");
+const htmlMin = require("gulp-htmlmin");
 
 // Sassコンパイル
 const sass = require("gulp-sass");
@@ -74,12 +75,18 @@ const paths = {
 
 // htmlフォーマット
 const htmlBeautifyFunc = () => {
-  var formatOptions = {
-    indent_size: 2,
-    indent_with_tabs: false,
-  };
+  // const formatOptions = {
+  //   indent_size: 2,
+  //   indent_with_tabs: false,
+  // };
   return src(paths.html.src)
-    .pipe(htmlBeautify(formatOptions))
+    .pipe(htmlBeautify({
+      indent_size: 2,
+      indent_with_tabs: false,
+    }))
+    .pipe(htmlMin({
+      removeComments: true
+    }))
     .pipe(dest(paths.html.dist));
 };
 
