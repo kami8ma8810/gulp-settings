@@ -75,17 +75,15 @@ const paths = {
 
 // htmlフォーマット
 const htmlBeautifyFunc = () => {
-  // const formatOptions = {
-  //   indent_size: 2,
-  //   indent_with_tabs: false,
-  // };
   return src(paths.html.src)
+    .pipe(htmlMin({
+      removeComments: true, //コメントを削除
+      collapseWhitespace: true, //余白を詰める
+      preserveLineBreaks: true //タグ間の改行を詰める
+    }))
     .pipe(htmlBeautify({
       indent_size: 2,
-      indent_with_tabs: false,
-    }))
-    .pipe(htmlMin({
-      removeComments: true
+      indent_with_tabs: false
     }))
     .pipe(dest(paths.html.dist));
 };
@@ -195,10 +193,10 @@ const watchFiles = () => {
   watch(paths.images.src, series(imagesFunc, browserReloadFunc));
 };
 
+exports.default = parallel(watchFiles, browserSyncFunc);
+
 // マップファイル除去
 const cleanMap = () => {
   return del([paths.styles.map, paths.scripts.map]);
 };
-
-exports.default = parallel(watchFiles, browserSyncFunc);
 exports.cleanmap = cleanMap;
