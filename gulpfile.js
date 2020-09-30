@@ -75,17 +75,15 @@ const paths = {
 
 // htmlフォーマット
 const htmlBeautifyFunc = () => {
-  // const formatOptions = {
-  //   indent_size: 2,
-  //   indent_with_tabs: false,
-  // };
   return src(paths.html.src)
+    .pipe(htmlMin({
+      removeComments: true, //コメントを削除
+      collapseWhitespace: true, //余白を詰める
+      preserveLineBreaks: true //タグ間の改行を詰める
+    }))
     .pipe(htmlBeautify({
       indent_size: 2,
       indent_with_tabs: false,
-    }))
-    .pipe(htmlMin({
-      removeComments: true
     }))
     .pipe(dest(paths.html.dist));
 };
