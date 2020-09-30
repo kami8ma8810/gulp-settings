@@ -10,7 +10,7 @@ const {
 // ファイルの削除
 const del = require("del");
 
-// html
+// htmlフォーマット
 const htmlBeautify = require("gulp-html-beautify");
 const htmlMin = require("gulp-htmlmin");
 
@@ -76,6 +76,9 @@ const paths = {
 // htmlフォーマット
 const htmlBeautifyFunc = () => {
   return src(paths.html.src)
+    .pipe(plumber({
+      errorHandler: notify.onError('Error: <%= error.message %>')
+    }))
     .pipe(htmlMin({
       removeComments: true, //コメントを削除
       collapseWhitespace: true, //余白を詰める
