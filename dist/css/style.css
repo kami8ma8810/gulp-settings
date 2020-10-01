@@ -1,4 +1,4 @@
-body header {
+header {
   box-sizing: border-box;
   margin: 0 auto;
   padding: 8px;
@@ -6,49 +6,62 @@ body header {
   color: #ffffff;
 }
 
-body header h1 {
+header h1 {
   font-size: 30px;
 }
 
-body header h2 {
-  font-size: 20px;
+header h2 {
+  font-size: 25px;
 }
 
-body header p {
+header p {
   font-size: 20px;
   font-weight: 700;
 }
 
-body footer {
+main {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+pre,
+code {
+  width: 100%;
+  white-space: pre-line;
+}
+
+footer {
   font-size: 20px;
 }
 
 @media (min-width: 300px) {
-  body header {
+  header {
     font-weight: 200;
   }
 }
 
 @media (min-width: 600px) {
-  body header {
+  header {
     font-weight: 200;
   }
 }
 
-@media (max-width: 500px) {
-  body header {
-    font-size: 30px;
-  }
-  body footer {
+@media (max-width: 700px) {
+  header {
     font-size: 40px;
+  }
+
+  footer {
+    font-size: 30px;
   }
 }
 
-@media (max-width: 700px) {
-  body header {
-    font-size: 40px;
-  }
-  body footer {
+@media (max-width: 500px) {
+  header {
     font-size: 30px;
+  }
+
+  footer {
+    font-size: 40px;
   }
 }
