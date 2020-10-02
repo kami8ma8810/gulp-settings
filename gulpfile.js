@@ -13,6 +13,7 @@ const del = require("del");
 // html
 const htmlBeautify = require("gulp-html-beautify");
 const htmlMin = require("gulp-htmlmin");
+const ejs = require("gulp-ejs");
 
 // Sassコンパイル
 const sass = require("gulp-sass");
@@ -49,10 +50,14 @@ const mode = require("gulp-mode")({
 
 //読み込むパスと出力するパスを指定
 const paths = {
+  ejs: {
+    watch: ["./ejs/**/*.ejs"],
+    src: ["./ejs/**/*.ejs", "!" + "./ejs/**/_*.ejs"], //アンダーバー付ejsファイルを除外する
+    dist: "./public/"
+  },
   html: {
     // src: "index.html",
     src: "./src/html/*.html",
-    // src: ["./ejs/**/*.ejs", "!" + "./ejs/**/_*.ejs"],
     dist: "./dist/html/"
   },
   styles: {
@@ -73,6 +78,18 @@ const paths = {
   }
 };
 
+//ejs
+const ejsFunc = () => {
+  return src(paths.ejs.src)
+    .pipe(ejs({}, {}, {
+      ext: '.html'
+    }))
+    .pipe(rename({
+      extname: ".html"
+    }))
+    .pipe(dest(paths.ejs.dist))
+}
+
 // htmlフォーマット
 const htmlBeautifyFunc = () => {
   return src(paths.html.src)
@@ -85,7 +102,7 @@ const htmlBeautifyFunc = () => {
       indent_size: 2,
       indent_with_tabs: false
     }))
-    .pipe(dest(paths.html.dist));
+    .pipe(dest(paths.html.dist))
 };
 
 // Sassコンパイル
@@ -117,7 +134,7 @@ const compileSass = () => {
     }))
     .pipe(dest(paths.styles.dist, {
       sourcemaps: "./map"
-    }));
+    }))
 };
 
 // JavaScriptコンパイル
@@ -136,7 +153,7 @@ const jsBabel = () => {
     .pipe(rename({
       extname: '.min.js'
     }))
-    .pipe(dest(paths.scripts.dist));
+    .pipe(dest(paths.scripts.dist))
 };
 
 // 画像圧縮
@@ -164,7 +181,7 @@ const imagesFunc = () => {
         verbose: true //メタ情報削除
       })
     )
-    .pipe(dest(paths.images.dist));
+    .pipe(dest(paths.images.dist))
 };
 
 // ブラウザシンク 同期処理
@@ -187,6 +204,7 @@ const browserReloadFunc = (done) => {
 
 // ファイル監視
 const watchFiles = () => {
+  watch(paths.ejs.watch, series(ejsFunc, browserReloadFunc));
   watch(paths.html.src, series(htmlBeautifyFunc, browserReloadFunc));
   watch(paths.styles.src, series(compileSass, browserReloadFunc));
   watch(paths.scripts.src, series(jsBabel, browserReloadFunc));
