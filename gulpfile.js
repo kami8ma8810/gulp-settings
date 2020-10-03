@@ -51,7 +51,7 @@ const mode = require("gulp-mode")({
 const paths = {
   html: {
     // src: "index.html",
-    src: "./src/html/*.html",
+    src: "./src/html/**/*.html",
     // src: ["./ejs/**/*.ejs", "!" + "./ejs/**/_*.ejs"],
     dist: "./dist/html/"
   },
@@ -74,7 +74,7 @@ const paths = {
 };
 
 // htmlフォーマット
-const htmlBeautifyFunc = () => {
+const htmlFormat = () => {
   return src(paths.html.src)
     .pipe(plumber({
       errorHandler: notify.onError('Error: <%= error.message %>')
@@ -190,7 +190,7 @@ const browserReloadFunc = (done) => {
 
 // ファイル監視
 const watchFiles = () => {
-  watch(paths.html.src, series(htmlBeautifyFunc, browserReloadFunc));
+  watch(paths.html.src, series(htmlFormat, browserReloadFunc));
   watch(paths.styles.src, series(compileSass, browserReloadFunc));
   watch(paths.scripts.src, series(jsBabel, browserReloadFunc));
   watch(paths.images.src, series(imagesFunc, browserReloadFunc));

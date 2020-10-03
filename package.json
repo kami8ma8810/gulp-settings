@@ -24,6 +24,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-html-beautify": "^1.0.1",
     "gulp-html-prettify": "0.0.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^7.1.0",
@@ -54,7 +55,5 @@
     "Android >= 5",
     "not dead"
   ],
-  "dependencies": {
-    "gulp-html-beautify": "^1.0.1"
-  }
+  "dependencies": {}
 }
