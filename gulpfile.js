@@ -10,6 +10,9 @@ const {
 // ファイルの削除
 const del = require("del");
 
+//ejsコンパイル
+
+
 // htmlフォーマット
 const htmlBeautify = require("gulp-html-beautify");
 const htmlMin = require("gulp-htmlmin");
