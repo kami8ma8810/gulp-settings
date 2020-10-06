@@ -117,8 +117,7 @@ const compileSass = () => {
     .pipe(sass({
       outputStyle: 'expanded'
     }).on("error", sass.logError))
-    .pipe(postCss([autoprefixer({
-        //指定の内容はpackage.jsonに記述
+    .pipe(postCss([autoprefixer({ //Autoprefixerの指定範囲はpackage.jsonに記述
         cascade: false,
         grid: 'autoplace' // IE11のgrid対応('-ms-')
       }),
