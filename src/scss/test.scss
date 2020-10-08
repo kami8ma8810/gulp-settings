@@ -1,0 +1,20 @@
+@mixin tab {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  padding: 1em 2em 2em 20em;
+  color: #302833;
+  width: 100vw;
+  background-color: #fbfaf5;
+  overflow: auto;
+  line-height: 1.5;
+  font-size: 1.6rem;
+
+  @include tab {
+    width: 50vw;
+  }
+}
