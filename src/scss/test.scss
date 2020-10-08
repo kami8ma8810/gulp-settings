@@ -5,16 +5,34 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  overflow: auto;
+  width: 100vw;
   padding: 1em 2em 2em 20em;
   color: #302833;
-  width: 100vw;
   background-color: #fbfaf5;
-  overflow: auto;
-  line-height: 1.5;
+
+  font-family: "Roboto", sans-serif;
+
   font-size: 1.6rem;
+
+  line-height: 1.5;
 
   @include tab {
     width: 50vw;
+  }
+
+  .box {
+    margin: 0 0 30px;
+
+    padding: 15px;
+
+    border: 1px solid #ccc;
+
+    font-size: 0.5em;
+  }
+
+  // .box で使ったスタイルを継承
+  .item {
+    @extend .box;
   }
 }

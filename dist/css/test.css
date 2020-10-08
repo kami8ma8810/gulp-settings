@@ -9,6 +9,14 @@ body {
   line-height: 1.5;
 }
 
+body .box,
+body .item {
+  margin: 0 0 30px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  font-size: 0.5em;
+}
+
 @media screen and (max-width: 768px) {
   body {
     width: 50vw;
