@@ -13,6 +13,8 @@ const del = require("del");
 // html
 const htmlBeautify = require("gulp-html-beautify");
 const htmlMin = require("gulp-htmlmin");
+
+//ejs
 const ejs = require("gulp-ejs");
 
 // Sassコンパイル
