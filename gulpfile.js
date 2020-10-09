@@ -30,7 +30,7 @@ const cleanCss = require('gulp-clean-css');
 const rename = require("gulp-rename");
 const stylelint = require("gulp-stylelint");
 // const stylelint = require("stylelint");
-const reporter = require("postcss-reporter");
+// const reporter = require("postcss-reporter");
 
 // JavaScript処理
 const babel = require("gulp-babel");
@@ -112,15 +112,12 @@ const htmlBeautifyFunc = () => {
 // Sassコンパイル
 const compileSass = () => {
   return src(paths.styles.src, {
-    sourcemaps: true
-  })
+      sourcemaps: true
+    })
     .pipe(plumber({
       errorHandler: notify.onError('Error: <%= error.message %>')
     }))
     .pipe(sassGlob())
-    // .pipe(stylelint({
-    //   reporters: [{ formatter: 'string', console: true }]
-    // }))
     .pipe(sass({
       outputStyle: 'expanded'
     }).on("error", sass.logError))
@@ -131,7 +128,8 @@ const compileSass = () => {
       }),
       cssDeclSort({
         order: 'smacss'
-      })]))
+      })
+    ]))
     .pipe(gcmq())
     .pipe(dest(paths.styles.dist))
     .pipe(cleanCss())
@@ -165,8 +163,8 @@ const jsBabel = () => {
 // 画像圧縮
 const imagesFunc = () => {
   return src(paths.images.src, {
-    since: lastRun(imagesFunc)
-  })
+      since: lastRun(imagesFunc)
+    })
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))

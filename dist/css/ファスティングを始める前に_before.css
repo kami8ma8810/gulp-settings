@@ -1,0 +1,520 @@
+@charset "UTF-8";
+
+main.l-main {
+  padding-bottom: 32px;
+  background-color: #fff;
+}
+
+.p-breadcrumb__inner {
+  color: #333;
+}
+
+section {
+  max-width: 960px;
+  margin: 1em auto 3em;
+}
+
+section.how {
+  margin-top: 5em;
+}
+
+.p-entry__body ul {
+  list-style: none;
+}
+
+.p-entry__body p,
+.p-entry__body dt,
+.p-entry__body dd,
+.p-entry__body ul,
+.p-entry__body li {
+  color: #333;
+  font-weight: normal;
+}
+
+.p-entry__body dl,
+.p-entry__body dd {
+  margin-bottom: 0 !important;
+}
+
+.img-box {
+  margin-bottom: 2em;
+}
+
+h2.title-border {
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #555;
+  text-align: center;
+}
+
+h3.title-border {
+  margin-top: 3em;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid #555;
+  color: #333 !important;
+}
+
+h3.title-border .step {
+  border-width: 0;
+}
+
+h3.title-border > span.circle {
+  display: inline-block;
+  position: relative;
+  margin-right: 16px;
+  margin-left: -.5em;
+  transform: rotate(-5deg);
+  font-size: 120%;
+}
+
+h3.title-border > span.circle::before {
+  display: inline-block;
+  z-index: -1;
+  position: absolute;
+  top: -.2em;
+  left: -.1em;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  background-color: #eef6f7;
+  content: "";
+}
+
+h3.title-border > span.circle > span {
+  font-size: 150%;
+}
+
+.title-border__sub {
+  font-size: 120%;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.p-entry__body h4 {
+  color: #333 !important;
+}
+
+dt.point-title {
+  margin-bottom: 1em;
+  border-bottom: 1px dashed #555;
+}
+
+ul.check-list {
+  margin-left: 0;
+  padding: 0;
+}
+
+ul.check-list li {
+  position: relative;
+  padding: 0em 0em 0.5em 1.5em;
+}
+
+ul.check-list li:after,
+ul.check-list li:before {
+  display: block;
+  position: absolute;
+  top: 0.4em;
+  left: 0.63em;
+  width: 2px;
+  height: 11px;
+  transform: rotate(45deg);
+  background: #555;
+  content: '';
+}
+
+ul.check-list li:before {
+  top: 0.6em;
+  left: 0.2em;
+  height: 8px;
+  transform: rotate(-45deg);
+}
+
+.border-box {
+  margin-bottom: 2em;
+  padding: 12px;
+  border: 1px solid #555;
+}
+
+.border-box > h4 {
+  text-align: center;
+}
+
+.border-box > ul {
+  list-style-type: disc !important;
+}
+
+ul.border-box__list {
+  margin-bottom: 1em;
+  margin-left: 0;
+}
+
+ul.border-box__list li {
+  display: inline-block;
+  padding-left: 1em;
+}
+
+ul.border-box__list li::before {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 6px;
+  margin-bottom: 4px;
+  border-radius: 50%;
+  background-color: #555;
+  content: "";
+}
+
+dt.kotomago-title {
+  position: relative;
+  margin-bottom: 2em;
+  padding: 0.5em;
+  background: #ede6d9;
+  color: #111;
+}
+
+.kotomago-title::after {
+  position: absolute;
+  top: 100%;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-top: 15px solid #ede6d9;
+  content: '';
+}
+
+.kotomago-list {
+  margin-bottom: 0 !important;
+  margin-left: 0 !important;
+}
+
+.kotomago-list > li:not(:last-of-type) {
+  margin-bottom: .5em;
+}
+
+.kotomago-list > li:first-of-type {
+  padding-left: 4em;
+  text-indent: -4em;
+}
+
+.kotomago-list__circle {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  background-color: #a7d0d8;
+  line-height: 2em;
+  text-align: center;
+  text-indent: 0em;
+}
+
+.santen {
+  padding: 0 0.5em;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+.prod-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.prod-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.prod-item:first-of-type,
+.prod-item:last-of-type {
+  flex-direction: row-reverse;
+}
+
+.prod-item > img {
+  width: auto;
+  max-width: 50%;
+  max-height: 200px;
+}
+
+.prod-item:first-of-type > img,
+.prod-item:last-of-type > img {
+  margin-right: 1em;
+}
+
+.prod-item:nth-of-type(2) > img {
+  margin-left: 1em;
+}
+
+.schedule {
+  margin-top: 5em;
+}
+
+.schedule > .schedule-title {
+  text-align: center;
+}
+
+.schedule > .schedule-title > span {
+  color: #444;
+  font-size: 200%;
+}
+
+.schedule .note {
+  margin-bottom: .5em;
+  font-size: 12px;
+}
+
+.schedule-table {
+  margin-bottom: 3em !important;
+}
+
+.schedule-table:last-of-type {
+  margin-bottom: 1em !important;
+}
+
+.schedule-table th,
+.schedule-table td {
+  border-color: #888 !important;
+  background-color: transparent !important;
+  color: #333 !important;
+}
+
+.schedule-table .row1 th {
+  padding: 5px 10px !important;
+}
+
+.schedule-table .col1 {
+  width: 5em !important;
+  padding: 0 !important;
+  font-size: 12px;
+}
+
+.schedule-table caption h5 {
+  position: relative;
+  padding: 1rem 2rem calc(1rem + 10px);
+  background: #ede6d9;
+  color: #333 !important;
+  font-size: 120% !important;
+  font-weight: 700;
+}
+
+.schedule-table caption h5::before {
+  position: absolute;
+  top: -7px;
+  left: -7px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #555;
+  content: '';
+}
+
+.schedule-table td.prod {
+  text-align: center;
+}
+
+.schedule-table td.prod > img {
+  display: block;
+  width: auto;
+  max-height: 80px;
+  margin: 0 auto;
+}
+
+.schedule-table td.prod.hzgp {
+  padding: 5px 10px !important;
+}
+
+.schedule-table td.prod.hzgp img {
+  max-height: 100px;
+}
+
+.schedule-table td.prod.water {
+  padding: 5px 10px !important;
+}
+
+.schedule-table td.prod.water img {
+  max-height: 100px;
+}
+
+.faq > h4 {
+  text-align: center;
+}
+
+.faq dt.question {
+  margin-top: 2em !important;
+  font-weight: 600;
+}
+
+.faq dt.question::before {
+  color: #ccb894;
+  font-family: "Optima";
+  font-size: 150%;
+  content: "Q. ";
+  counter-increment: question;
+}
+
+.faq dd.answer::before {
+  color: #84bdc8;
+  font-family: "Optima";
+  font-size: 150%;
+  font-weight: 600;
+  content: "A. ";
+}
+
+.is-sp {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  h2.title-border {
+    font-size: 28px;
+  }
+
+  h3.title-border {
+    font-size: 24px;
+  }
+
+  .p-entry__body h4 {
+    font-size: 22px;
+  }
+
+  dt.point-title {
+    font-size: 20px;
+  }
+
+  ul.check-list li {
+    font-size: 16px;
+  }
+
+  ul.check-list li:after,
+  ul.check-list li:before {
+    top: 0.6em;
+    left: 0.7em;
+    height: 14px;
+  }
+
+  ul.check-list li:before {
+    top: 0.9em;
+  }
+
+  .border-box {
+    padding: 32px;
+    font-size: 16px;
+  }
+
+  dt.kotomago-title {
+    font-size: 16px;
+  }
+
+  .prod-list {
+    margin-top: 3em;
+  }
+
+  .prod-item {
+    margin-bottom: 3em;
+  }
+
+  .prod-item dt,
+  .prod-item dd {
+    font-size: 18px;
+  }
+
+  .prod-item:first-of-type > img,
+  .prod-item:last-of-type > img {
+    margin-right: 3em;
+  }
+
+  .prod-item:nth-of-type(2) > img {
+    margin-left: 3em;
+  }
+
+  .schedule .note {
+    font-size: 14px;
+  }
+
+  .schedule-table .col1 {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 990px) {
+  section {
+    margin: 2em auto 4em;
+  }
+
+  .prod-list {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .prod-item {
+    flex-direction: column-reverse;
+    justify-content: center;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .prod-item dt {
+    margin-top: 1em;
+  }
+
+  .prod-item:first-of-type,
+  .prod-item:last-of-type {
+    flex-direction: column-reverse;
+  }
+
+  .prod-item > img {
+    max-width: 100%;
+    max-height: 300px;
+  }
+
+  .prod-item:first-of-type > img,
+  .prod-item:last-of-type > img {
+    margin-right: 0;
+  }
+
+  .prod-item:nth-of-type(2) > img {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .schedule > .schedule-title {
+    margin-bottom: 2em;
+  }
+
+  .schedule-flex {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    margin: 0 calc(50% - 50vw);
+    padding: 0 calc(50vw - 50%);
+  }
+
+  table {
+    width: 32%;
+  }
+
+  .schedule-table tr:not(:first-of-type) {
+    height: 150px;
+  }
+
+  .schedule-table .row1 th {
+    padding: 10px 15px !important;
+  }
+
+  .schedule-table td.prod {
+    font-size: 14px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  .faq dl {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .is-sp {
+    display: block;
+  }
+}

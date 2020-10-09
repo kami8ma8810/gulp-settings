@@ -5,16 +5,13 @@
 }
 
 body {
-  overflow: auto;
   width: 100vw;
+  overflow: auto;
   padding: 1em 2em 2em 20em;
-  color: #302833;
   background-color: #fbfaf5;
-
-  font-family: "Roboto", sans-serif;
-
+  color: #302833;
   font-size: 1.6rem;
-
+  font-family: "Roboto", sans-serif;
   line-height: 1.5;
 
   @include tab {
@@ -23,11 +20,8 @@ body {
 
   .box {
     margin: 0 0 30px;
-
     padding: 15px;
-
     border: 1px solid #ccc;
-
     font-size: 0.5em;
   }
 
