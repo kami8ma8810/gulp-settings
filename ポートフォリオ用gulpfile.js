@@ -11,7 +11,7 @@ const {
 const del = require("del");
 
 //ejsコンパイル
-const ejs = require("gulp-ejs");
+
 
 // htmlフォーマット
 const htmlBeautify = require("gulp-html-beautify");
