@@ -1,0 +1,24 @@
+body {
+  width: 100vw;
+  overflow: auto;
+  padding: 1em 2em 2em 20em;
+  background-color: #fbfaf5;
+  color: #302833;
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    width: 50vw;
+  }
+}
+
+body .box, body .item {
+  margin: 0 0 30px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  font-size: 0.5em;
+}
+/*# sourceMappingURL=test.css.map */

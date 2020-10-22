@@ -1,60 +1,75 @@
-body header {
-  box-sizing: border-box;
+header {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0 auto;
   padding: 8px;
+  background: -webkit-gradient(linear, right bottom, left top, from(blue), to(red));
+  background: -o-linear-gradient(right bottom, blue, red);
   background: linear-gradient(to left top, blue, red);
   color: #ffffff;
 }
 
-body header h1 {
+header h1 {
   font-size: 30px;
 }
 
-body header h2 {
-  font-size: 20px;
+header h2 {
+  font-size: 25px;
 }
 
-body header p {
+header p {
   font-weight: 700;
   font-size: 20px;
 }
 
 @media (min-width: 300px) {
-  body header {
+  header {
     font-weight: 200;
   }
 }
 
 @media (min-width: 600px) {
-  body header {
+  header {
     font-weight: 200;
   }
 }
 
 @media (max-width: 500px) {
-  body header {
+  header {
     font-size: 30px;
   }
 }
 
 @media (max-width: 700px) {
-  body header {
+  header {
     font-size: 40px;
   }
 }
 
-body footer {
+main {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+pre,
+code {
+  width: 100%;
+  white-space: pre-line;
+}
+
+footer {
   font-size: 20px;
 }
 
 @media (max-width: 700px) {
-  body footer {
+  footer {
     font-size: 30px;
   }
 }
 
 @media (max-width: 500px) {
-  body footer {
+  footer {
     font-size: 40px;
   }
 }
+/*# sourceMappingURL=style.css.map */

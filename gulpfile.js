@@ -106,6 +106,9 @@ const htmlBeautifyFunc = () => {
       indent_size: 2,
       indent_with_tabs: false
     }))
+    .pipe(rename({
+      extname: '.dist.html'
+    }))
     .pipe(dest(paths.html.dist))
 };
 
