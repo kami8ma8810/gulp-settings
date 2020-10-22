@@ -1590,10 +1590,11 @@ dl.fastingSet__news dd a {
 .sliderBox {
   width: 80%;
   margin: 0 1em;
-  padding: 2em;
+  padding: 2em 2em 4em 2em;
   border: 1px solid #ddd;
   background: #fff;
 }
+
 
 .pickupVoiceFlex .main {
   display: -webkit-box;
@@ -1689,6 +1690,10 @@ dl.fastingSet__news dd a {
 @media (max-width: 768px) {
   .youtube iframe {
     height: 130% !important;
+  }
+
+  .sliderBox {
+    padding: 2em;
   }
 }
 
@@ -2651,7 +2656,7 @@ p.prod-desc__price .sm {
 
   ul.slick-dots {
     text-align: center;
-    bottom: 24px !important;
+    bottom: 32px !important;
   }
 
   ul.slick-dots li button {
