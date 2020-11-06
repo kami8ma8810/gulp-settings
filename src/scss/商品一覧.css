@@ -392,6 +392,10 @@ a.togglePlus:hover {
   text-align: center;
 }
 
+.price .sm {
+  font-size: 10px !important;
+}
+
 @media (min-width: 768px) {
   .is-sp {
     display: none;

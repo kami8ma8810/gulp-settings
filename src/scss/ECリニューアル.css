@@ -1722,7 +1722,7 @@ p.specialFlex-text__title {
 .specialFlex-text__desc {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   overflow: hidden;
   font-size: .8rem;
   line-height: 1.5;
@@ -2138,7 +2138,7 @@ p.specialFlex-text__title {
   }
 
   .starSlider h3 {
-    width: 90%;
+    width: 100%;
     margin: 0 auto 24.2px;
   }
 

@@ -18,6 +18,12 @@ section {
   margin: 0 auto;
 }
 
+section.set-section.makenai,
+section.set-section.bodymake {
+  margin-bottom: 5em !important;
+}
+
+
 .set-section .title {
   text-align: center;
   margin: 3em 0;
@@ -36,7 +42,6 @@ section {
   text-align: center;
   font-size: 1em;
 }
-
 
 .set-content__title {
   display: -webkit-box;
@@ -117,7 +122,7 @@ section {
 }
 
 .set-item img {
-  width: 100px;
+  width: 200px;
 }
 
 .set-price {
@@ -173,5 +178,36 @@ section {
   .set-price {
     width: 30%;
     margin: 0 auto 1em;
+  }
+}
+
+br.sp {
+  display: block;
+  ;
+}
+
+@media screen and (max-width:649px) {
+  br.sp {
+    display: none;
+  }
+
+  .set-section .desc {
+    text-align: left;
+    border: 1px solid #555;
+    padding: 1em;
+    font-size: 13px;
+  }
+
+  .set-section .desc.__top {
+    border-width: 0;
+    padding: 0;
+  }
+
+  .set-item {
+    justify-content: space-between;
+  }
+
+  .set-item img {
+    width: 100px;
   }
 }

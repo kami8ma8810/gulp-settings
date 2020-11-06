@@ -28,7 +28,7 @@ const cssDeclSort = require('css-declaration-sorter');
 const gcmq = require('gulp-group-css-media-queries');
 const cleanCss = require('gulp-clean-css');
 const rename = require("gulp-rename");
-const stylelint = require("gulp-stylelint");
+// const stylelint = require("gulp-stylelint");
 // const stylelint = require("stylelint");
 // const reporter = require("postcss-reporter");
 
