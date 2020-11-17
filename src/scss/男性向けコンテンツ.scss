@@ -1,3 +1,9 @@
+.test {
+  .sass-test {
+    font-size: 100px;
+  }
+}
+
 @mixin md {
   @media screen and (min-width:600px) {
     @content;

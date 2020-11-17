@@ -1,3 +1,7 @@
+.test .sass-test {
+  font-size: 100px;
+}
+
 .l-main {
   padding-bottom: 32px;
   background: #ececec;
@@ -107,7 +111,7 @@ p.prod-tag {
 }
 
 .prod-detail__text .small {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   font-size: 12px;
   line-height: 1.8;
 }
@@ -165,7 +169,7 @@ p.summary-lead {
   -webkit-box-decoration-break: clone;
   display: inline;
   box-decoration-break: clone;
-  padding: .1em .2em;
+  padding: 0.1em 0.2em;
   background: #342c12;
   color: #fff;
   font-size: 18px;

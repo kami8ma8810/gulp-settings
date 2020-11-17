@@ -27,7 +27,8 @@ const autoprefixer = require('autoprefixer');
 const cssDeclSort = require('css-declaration-sorter');
 const gcmq = require('gulp-group-css-media-queries');
 const cleanCss = require('gulp-clean-css');
-const rename = require("gulp-rename");
+const rename = require('gulp-rename');
+const fibers = require('fibers');
 // const stylelint = require("gulp-stylelint");
 // const stylelint = require("stylelint");
 // const reporter = require("postcss-reporter");
@@ -113,6 +114,7 @@ const htmlBeautifyFunc = () => {
 };
 
 // Sassコンパイル
+sass.compiler = require('sass');
 const compileSass = () => {
   return src(paths.styles.src, {
       sourcemaps: true
@@ -122,6 +124,7 @@ const compileSass = () => {
     }))
     .pipe(sassGlob())
     .pipe(sass({
+      fiber: fibers,
       outputStyle: 'expanded'
     }).on("error", sass.logError))
     .pipe(postCss([
