@@ -28,6 +28,7 @@ const cssDeclSort = require('css-declaration-sorter');
 const gcmq = require('gulp-group-css-media-queries');
 const cleanCss = require('gulp-clean-css');
 const rename = require("gulp-rename");
+const fibers = require('fibers');
 // const styleLint = require('gulp-stylelint');
 
 // JavaScript処理
@@ -95,6 +96,7 @@ const htmlFormat = () => {
 };
 
 // Sassコンパイル
+sass.complier = require('sass');
 const compileSass = () => {
   return src(paths.styles.src, {
       sourcemaps: true
@@ -104,6 +106,7 @@ const compileSass = () => {
     }))
     .pipe(sassGlob())
     .pipe(sass({
+      fiber: fibers,
       outputStyle: 'expanded'
     }).on("error", sass.logError))
     .pipe(postCss([autoprefixer({
