@@ -1,7 +1,3 @@
-.test .sass-test {
-  font-size: 100px;
-}
-
 .l-main {
   padding-bottom: 32px;
   background: #ececec;
@@ -66,6 +62,7 @@ section.page-lead {
   width: 30%;
   max-width: 200px;
   margin-right: 5%;
+  transform: rotate(-10deg);
 }
 
 .ranking-lead__title {
@@ -169,9 +166,8 @@ p.summary-lead {
   -webkit-box-decoration-break: clone;
   display: inline;
   box-decoration-break: clone;
-  padding: 0.1em 0.2em;
-  background: #342c12;
-  color: #fff;
+  padding: 0 0.1em;
+  background: linear-gradient(transparent 60%, #dcd1bd 0%);
   font-size: 18px;
   font-weight: 600;
   line-height: 1.8;
@@ -225,15 +221,21 @@ p.summary-lead {
 }
 
 .staff-lead .large {
-  margin-bottom: 1em;
-  font-size: 16px;
+  -webkit-box-decoration-break: clone;
+  display: inline;
+  box-decoration-break: clone;
+  padding: 0 0.1em;
+  background: linear-gradient(transparent 60%, #dcd1bd 0%);
+  font-size: 18px;
   font-weight: 600;
+  line-height: 1.8;
 }
 
 .staff-container {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  margin-top: 1em;
   margin-bottom: 1em;
 }
 
@@ -314,10 +316,6 @@ p.summary-lead {
     font-size: 14px;
   }
 
-  .staff-lead .large {
-    font-size: 18px;
-  }
-
   .staff-container .staff-img p {
     margin-top: 1em;
     font-size: 14px;
@@ -390,10 +388,6 @@ p.summary-lead {
     margin: 0;
   }
 
-  p.prod-tag {
-    margin-bottom: 3em;
-  }
-
   .prod-detail__text .small {
     margin-bottom: 1em;
     font-size: 16px;
@@ -428,7 +422,11 @@ p.summary-lead {
 
   .staff-lead .large {
     margin-bottom: 4%;
-    font-size: 20px;
+    font-size: 22px;
+  }
+
+  .staff-container {
+    margin-top: 4%;
   }
 }
 

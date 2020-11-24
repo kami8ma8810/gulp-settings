@@ -1,9 +1,3 @@
-.test {
-  .sass-test {
-    font-size: 100px;
-  }
-}
-
 @mixin md {
   @media screen and (min-width:600px) {
     @content;
@@ -105,6 +99,7 @@ section.page-lead {
   width: 30%;
   max-width: 200px;
   margin-right: 5%;
+  transform: rotate(-10deg);
 }
 
 .ranking-lead__title {
@@ -184,10 +179,6 @@ p.prod-tag {
 
   @include md {
     font-size: 14px;
-  }
-
-  @include pc {
-    margin-bottom: 3em;
   }
 }
 
@@ -299,10 +290,10 @@ p.summary-lead {
   display: inline;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  // background: linear-gradient(transparent 70%, #ede6d9 0%);
-  padding: .1em .2em;
-  background: darken(#C3A64F, 40%);
-  color: #fff;
+  background: linear-gradient(transparent 60%, lighten(#c1ae8b, 15%) 0%);
+  padding: 0 .1em;
+  // background: darken(#C3A64F, 40%);
+  // background: darken(#c1ae8b, 40%);
   font-weight: 600;
 
   @include tab {
@@ -402,20 +393,23 @@ p.summary-lead {
   }
 
   .large {
-    font-size: 16px;
-    margin-bottom: 1em;
+    font-size: 18px;
+    line-height: 1.8;
+    display: inline;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    background: linear-gradient(transparent 60%, lighten(#c1ae8b, 15%) 0%);
+    padding: 0 .1em;
+    // background: darken(#C3A64F, 40%);
+    // background: darken(#c1ae8b, 40%);
     font-weight: 600;
-
-    @include md {
-      font-size: 18px;
-    }
 
     @include tab {
       font-size: 20px;
     }
 
     @include pc {
-      font-size: 20px;
+      font-size: 22px;
       margin-bottom: 4%;
     }
   }
@@ -425,7 +419,12 @@ p.summary-lead {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  margin-top: 1em;
   margin-bottom: 1em;
+
+  @include pc {
+    margin-top: 4%;
+  }
 
   .staff-img {
     width: 36%;
