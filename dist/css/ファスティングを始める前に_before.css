@@ -58,6 +58,8 @@ h3.title-border .step {
 }
 
 h3.title-border > span.circle {
+  -webkit-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
   display: inline-block;
   position: relative;
   margin-right: 16px;
@@ -110,6 +112,8 @@ ul.check-list li {
 
 ul.check-list li:after,
 ul.check-list li:before {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   display: block;
   position: absolute;
   top: 0.4em;
@@ -122,6 +126,8 @@ ul.check-list li:before {
 }
 
 ul.check-list li:before {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
   top: 0.6em;
   left: 0.2em;
   height: 8px;
@@ -215,12 +221,25 @@ dt.kotomago-title {
 }
 
 .prod-list {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .prod-item {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -229,6 +248,9 @@ dt.kotomago-title {
 
 .prod-item:first-of-type,
 .prod-item:last-of-type {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
 }
 
@@ -443,11 +465,20 @@ dt.kotomago-title {
   }
 
   .prod-list {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    -ms-flex-pack: distribute;
     flex-direction: row;
     justify-content: space-around;
   }
 
   .prod-item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     flex-direction: column-reverse;
     justify-content: center;
     margin-bottom: 0;
@@ -460,6 +491,9 @@ dt.kotomago-title {
 
   .prod-item:first-of-type,
   .prod-item:last-of-type {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
   }
 
@@ -483,6 +517,10 @@ dt.kotomago-title {
   }
 
   .schedule-flex {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     justify-content: space-between;
     width: 100vw;

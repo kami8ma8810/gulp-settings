@@ -213,12 +213,13 @@ const browserReloadFunc = (done) => {
 };
 
 // ファイル監視
-const watchFiles = () => {
+const watchFiles = (done) => {
   watch(paths.ejs.watch, series(ejsFunc, browserReloadFunc));
   watch(paths.html.src, series(htmlBeautifyFunc, browserReloadFunc));
   watch(paths.styles.src, series(compileSass, browserReloadFunc));
   watch(paths.scripts.src, series(jsBabel, browserReloadFunc));
   watch(paths.images.src, series(imagesFunc, browserReloadFunc));
+  done();
 };
 
 exports.default = parallel(watchFiles, browserSyncFunc);
