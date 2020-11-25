@@ -55,8 +55,8 @@
   "browserslist": [
     "last 3 version",
     "> 1%",
-    "IE 11",
+    "IE >= 10",
     "Firefox ESR",
-    "Android >= 5"
+    "Android >= 4.4"
   ]
 }
