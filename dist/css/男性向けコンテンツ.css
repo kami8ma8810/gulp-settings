@@ -187,6 +187,54 @@ p.summary-lead {
   line-height: 1.8;
 }
 
+.js-bg span {
+  display: inline-block;
+  z-index: 2;
+  position: relative;
+  padding: 0 0.1em;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.js-bg span::before {
+  display: block;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(80%, transparent), color-stop(0%, #dcd1bd));
+  background: -o-linear-gradient(transparent 80%, #dcd1bd 0%);
+  background: linear-gradient(transparent 80%, #dcd1bd 0%);
+  content: "";
+}
+
+.js-bg.is-active span::before {
+  -webkit-animation: bgAnime 0.5s ease-in-out 0s forwards;
+  animation: bgAnime 0.5s ease-in-out 0s forwards;
+}
+
+@-webkit-keyframes bgAnime {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes bgAnime {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
 .summary-container {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
@@ -392,7 +440,6 @@ p.summary-lead {
   }
 
   .summary-container .summary-text {
-    padding-bottom: 2em;
     font-size: 16px;
     line-height: 2.4;
   }

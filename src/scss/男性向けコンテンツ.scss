@@ -305,6 +305,42 @@ p.summary-lead {
   }
 }
 
+.js-bg span {
+  display: inline-block;
+  padding: 0 0.1em;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.8;
+  position: relative;
+  z-index: 2;
+}
+
+.js-bg span::before {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  background: linear-gradient(transparent 80%, #dcd1bd 0%);
+  z-index: 1;
+}
+
+.js-bg.is-active span::before {
+  animation: bgAnime 0.5s ease-in-out 0s forwards;
+}
+
+@keyframes bgAnime {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+
 .summary-container {
   display: flex;
   justify-content: space-between;
@@ -355,7 +391,6 @@ p.summary-lead {
     @include tab {
       line-height: 2.4;
       font-size: 16px;
-      padding-bottom: 2em;
     }
   }
 }
