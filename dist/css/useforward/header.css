@@ -1,0 +1,9 @@
+h1 {
+  color: #333;
+}
+
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 32px;
+  }
+}

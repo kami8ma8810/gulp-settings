@@ -1,0 +1,9 @@
+@use 'import'as f;
+
+h1 {
+  @include f.sp {
+    font-size: 32px;
+  }
+
+  color: f.$colorBlack;
+}
