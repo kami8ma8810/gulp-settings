@@ -1,9 +1,10 @@
-@use 'import'as f;
+// globalで呼び出す
+@use 'import'as g;
 
 h1 {
-  @include f.sp {
+  @include g.sp {
     font-size: 32px;
   }
 
-  color: f.$colorBlack;
+  color: g.$colorBlack;
 }
