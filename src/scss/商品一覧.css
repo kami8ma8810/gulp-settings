@@ -214,6 +214,15 @@ ul.item-list li a::after {
   font-size: 14px;
 }
 
+.rank-item dd.item-title {
+  line-height: 1.5;
+}
+
+.item-title .name {
+  margin-top: 1em;
+  height: 3em;
+}
+
 @media (min-width: 768px) {
 
   .rank-item dt,
@@ -297,9 +306,9 @@ a.togglePlus:hover {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
@@ -402,4 +411,13 @@ a.togglePlus:hover {
   }
 }
 
-/*# sourceMappingURL=商品一覧.css.map */
+.fuwatto-wrap [class*="fuwatto"] {
+  opacity: 0;
+  transform: translate(0, 10px);
+  transition: all 0.9s;
+}
+
+.fuwatto-wrap [class*="fuwatto"].f-act {
+  opacity: 1;
+  transform: translate(0, 0);
+}
