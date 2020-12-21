@@ -24,69 +24,83 @@
       </ol>
       <p>※コマンド「npm i」を打つ前にpackage.jsonの中身をいじるとエラーになったり上手くインストールされないので注意。</p>
     </article>
-    <div class="container">
-      <div class="e">
-        <h1>見出し</h1>
-        <p>テキスト</p>
+    <a class="site"
+      href="https://medium.com/elegant-seagulls/parallax-and-scroll-triggered-animations-with-the-intersection-observer-api-and-gsap3-53b58c80b2fa"
+      target="_blank">参考文献</a>
+    <section>SCROLL DOWN</section>
+    <section>
+      <div class="js-trigger">
+        <div class="animate-in"></div>
+        <div class="animate-in"></div>
+        <div class="animate-in"></div>
       </div>
-      <div class="e">
-        <h1>見出し</h1>
-        <p>テキスト</p>
+    </section>
+    <section>
+      <div class="js-trigger">
+        <div class="animate-in"></div>
       </div>
-      <div class="e">
-        <h1>見出し</h1>
-        <p>テキスト</p>
+    </section>
+    <section>
+      <div class="js-trigger">
+        <div class="animate-in"></div>
       </div>
-    </div>
-    <div class="e">
-      <h1>見出し</h1>
-      <p>テキスト</p>
-    </div>
-    <div class="space"></div>
-    <div class="e">
-      <h1>見出し</h1>
-      <p>テキスト</p>
-    </div>
-    <div class="space"></div>
-    <div class="e">
-      <h1>見出し</h1>
-      <p>テキスト</p>
-    </div>
-    <div class="space"></div>
-    <div class="e">
-      <h1>見出し</h1>
-      <p>テキスト</p>
-    </div>
-    <div class="space"></div>
+    </section>
+    <section>
+      <div class="js-trigger">
+        <div class="animate-in"></div>
+        <div class="animate-in"></div>
+        <div class="animate-in"></div>
+        <div class="animate-in"></div>
+        <div class="animate-in"></div>
+      </div>
+    </section>
+    <section>
+      <div class="js-trigger">
+        <div class="animate-in"></div>
+        <div class="animate-in"></div>
+      </div>
+    </section>
+
   </main>
   <footer>
     <p><small>&copy;2020 Hayato Kamiyama</small></p>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
   <script>
-    window.addEventListener(
-      "load",
-      function () {
-        const observer = new IntersectionObserver(
-          function (entries) {
-            for (let i = 0; i < entries.length; i++) {
-              if (entries[i].intersectionRatio <= 0) continue;
-              showElm(entries[i].target);
-            }
-          }, {
-            root: null,
-            rootMargin: "-50% 0px",
-            threshold: 0
-          });
-        elements = document.querySelectorAll(".e");
-        for (let i = 0; i < elements.length; i++) {
-          observer.observe(elements[i]);
-        };
+    document.addEventListener('DOMContentLoaded', function () {
+      const options = {
+        root: null,
+        rootMargin: '-50% 0px',
+      };
 
-        function showElm(e) {
-          e.classList.add("e-v");
-          observer.unobserve(e);
-        }
-      }, false);
+      const observerElements = document.querySelectorAll('.js-trigger');
+
+      const observerFunc = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            const targetElement = entry.target.querySelectorAll('.animate-in')
+
+            if (entry.isIntersecting) {
+              gsap.fromTo(targetElement, {
+                y: 50
+              }, {
+                duration: 1,
+                // rotation: '-360deg',
+                autoAlpha: 1,
+                y: 0,
+                stagger: .2
+              })
+              observerFunc.unobserve(entry.target);
+            }
+          });
+        },
+        options
+      );
+
+      observerElements.forEach(el => {
+        observerFunc.observe(el);
+      });
+    });
 
   </script>
 </body>
