@@ -30,37 +30,36 @@
     <section>SCROLL DOWN</section>
     <section>
       <div class="js-trigger">
-        <div class="animate-in"></div>
-        <div class="animate-in"></div>
-        <div class="animate-in"></div>
+        <div class="js-anime"></div>
+        <div class="js-anime"></div>
+        <div class="js-anime"></div>
       </div>
     </section>
     <section>
       <div class="js-trigger">
-        <div class="animate-in"></div>
+        <div class="js-anime"></div>
       </div>
     </section>
     <section>
       <div class="js-trigger">
-        <div class="animate-in"></div>
+        <div class="js-anime"></div>
       </div>
     </section>
     <section>
       <div class="js-trigger">
-        <div class="animate-in"></div>
-        <div class="animate-in"></div>
-        <div class="animate-in"></div>
-        <div class="animate-in"></div>
-        <div class="animate-in"></div>
+        <div class="js-anime"></div>
+        <div class="js-anime"></div>
+        <div class="js-anime"></div>
+        <div class="js-anime"></div>
+        <div class="js-anime"></div>
       </div>
     </section>
     <section>
       <div class="js-trigger">
-        <div class="animate-in"></div>
-        <div class="animate-in"></div>
+        <div class="js-anime"></div>
+        <div class="js-anime"></div>
       </div>
     </section>
-
   </main>
   <footer>
     <p><small>&copy;2020 Hayato Kamiyama</small></p>
@@ -78,14 +77,14 @@
       const observerFunc = new IntersectionObserver(
         (entries) => {
           entries.forEach(entry => {
-            const targetElement = entry.target.querySelectorAll('.animate-in')
+            const targetElement = entry.target.querySelectorAll('.js-anime')
 
             if (entry.isIntersecting) {
               gsap.fromTo(targetElement, {
                 y: 50
               }, {
                 duration: 1,
-                // rotation: '-360deg',
+                rotation: '-360deg',
                 autoAlpha: 1,
                 y: 0,
                 stagger: .2

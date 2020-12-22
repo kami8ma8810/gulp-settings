@@ -50,7 +50,7 @@ section {
   height: 100vh;
 }
 
-.animate-in {
+.js-anime {
   display: inline-block;
   visibility: hidden;
   width: 60px;
