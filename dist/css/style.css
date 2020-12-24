@@ -52,11 +52,11 @@ section {
 
 .js-fadein {
   display: inline-block;
-  visibility: hidden;
   width: 60px;
   height: 60px;
   margin: 0 20px;
   background: #888;
+  opacity: 0;
 }
 
 @media (min-width: 300px) {
