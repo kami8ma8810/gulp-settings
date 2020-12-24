@@ -50,7 +50,7 @@ section {
   height: 100vh;
 }
 
-.js-anime {
+.js-fadein {
   display: inline-block;
   visibility: hidden;
   width: 60px;
