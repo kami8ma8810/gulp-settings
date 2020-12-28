@@ -1,7 +1,10 @@
 body header {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0 auto;
   padding: 8px;
+  background: -webkit-gradient(linear, right bottom, left top, from(blue), to(red));
+  background: -o-linear-gradient(right bottom, blue, red);
   background: linear-gradient(to left top, blue, red);
   color: #ffffff;
 }
@@ -11,7 +14,7 @@ body header h1 {
 }
 
 body header h2 {
-  font-size: 20px;
+  font-size: 30px;
 }
 
 body header p {
@@ -58,3 +61,4 @@ body footer {
     font-size: 40px;
   }
 }
+/*# sourceMappingURL=style.css.map */
