@@ -11,7 +11,7 @@ body header h1 {
 }
 
 body header h2 {
-  font-size: 20px;
+  font-size: 30px;
 }
 
 body header p {
@@ -35,20 +35,22 @@ body footer {
   }
 }
 
-@media (max-width: 500px) {
-  body header {
-    font-size: 30px;
-  }
-  body footer {
-    font-size: 40px;
-  }
-}
-
 @media (max-width: 700px) {
   body header {
     font-size: 40px;
   }
+
   body footer {
     font-size: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  body header {
+    font-size: 30px;
+  }
+
+  body footer {
+    font-size: 40px;
   }
 }

@@ -5,20 +5,20 @@ const {
   lastRun,
   series, //記述順に処理
   parallel //平行して処理
-} = require("gulp");
+} = require('gulp');
 
 // ファイルの削除
-const del = require("del");
+const del = require('del');
 
 //ejsコンパイル
-const ejs = require("gulp-ejs");
+const ejs = require('gulp-ejs');
 
 // htmlフォーマット
-const htmlBeautify = require("gulp-html-beautify");
-const htmlMin = require("gulp-htmlmin");
+const htmlBeautify = require('gulp-html-beautify');
+const htmlMin = require('gulp-htmlmin');
 
 // Sassコンパイル
-const sass = require("gulp-sass");
+const sass = require('gulp-sass');
 const sassGlob = require('gulp-sass-glob');
 const notify = require('gulp-notify');
 const plumber = require('gulp-plumber');
@@ -27,53 +27,53 @@ const autoprefixer = require('autoprefixer');
 const cssDeclSort = require('css-declaration-sorter');
 const gcmq = require('gulp-group-css-media-queries');
 const cleanCss = require('gulp-clean-css');
-const rename = require("gulp-rename");
+const rename = require('gulp-rename');
 const fibers = require('fibers');
 // const styleLint = require('gulp-stylelint');
 
 // JavaScript処理
-const babel = require("gulp-babel");
-const uglify = require("gulp-uglify");
+const babel = require('gulp-babel');
+const uglify = require('gulp-uglify');
 
 // 画像圧縮
-const imagemin = require("gulp-imagemin");
-const imageminMozjpeg = require("imagemin-mozjpeg");
-const imageminPngquant = require("imagemin-pngquant");
-const imageminSvgo = require("imagemin-svgo");
+const imagemin = require('gulp-imagemin');
+const imageminMozjpeg = require('imagemin-mozjpeg');
+const imageminPngquant = require('imagemin-pngquant');
+const imageminSvgo = require('imagemin-svgo');
 
 // ブラウザ同期
 const browserSync = require('browser-sync').create();
 
 //本番(production)と開発(development)で処理を分ける
-const mode = require("gulp-mode")({
-  modes: ["production", "development"],
-  default: "development",
-  verbose: false
-});
+// const mode = require('gulp-mode')({
+//   modes: ['production', 'development'],
+//   default: 'development',
+//   verbose: false
+// });
 
 //読み込むパスと出力するパスを指定
 const paths = {
   html: {
-    // src: "index.html",
-    src: "./src/html/**/*.html",
-    // src: ["./ejs/**/*.ejs", "!" + "./ejs/**/_*.ejs"],
-    dist: "./dist/html/"
+    // src: 'index.html',
+    src: './src/html/**/*.html',
+    // src: ['./ejs/**/*.ejs', '!' + './ejs/**/_*.ejs'],
+    dist: './dist/html/'
   },
   styles: {
-    src: "./src/scss/**/*.scss",
-    dist: "./dist/css/",
-    map: "./dist/css/map"
+    src: './src/scss/**/*.scss',
+    dist: './dist/css/',
+    map: './dist/css/map'
   },
   scripts: {
-    src: "./src/js/**/*.js",
-    dist: "./dist/js/",
-    map: "./dist/js/map",
-    core: "src/js/core/**/*.js",
-    app: "src/js/app/**/*.js"
+    src: './src/js/**/*.js',
+    dist: './dist/js/',
+    map: './dist/js/map',
+    core: 'src/js/core/**/*.js',
+    app: 'src/js/app/**/*.js'
   },
   images: {
-    src: "./src/img/**/*.{jpg,jpeg,png,gif,svg}",
-    dist: "./dist/img/"
+    src: './src/img/**/*.{jpg,jpeg,png,gif,svg}',
+    dist: './dist/img/'
   }
 };
 
@@ -96,7 +96,7 @@ const htmlFormat = () => {
 };
 
 // Sassコンパイル
-sass.complier = require('sass');
+sass.compiler = require('sass');
 const compileSass = () => {
   return src(paths.styles.src, {
       sourcemaps: true
@@ -108,7 +108,7 @@ const compileSass = () => {
     .pipe(sass({
       fiber: fibers,
       outputStyle: 'expanded'
-    }).on("error", sass.logError))
+    }).on('error', sass.logError))
     .pipe(postCss([autoprefixer({
         //指定の内容はpackage.jsonに記述
         cascade: false,
@@ -125,7 +125,7 @@ const compileSass = () => {
       extname: '.min.css'
     }))
     .pipe(dest(paths.styles.dist, {
-      sourcemaps: "./map"
+      sourcemaps: './map'
     }));
 };
 
@@ -154,7 +154,7 @@ const imagesFunc = () => {
       since: lastRun(imagesFunc)
     })
     .pipe(plumber({
-      errorHandler: notify.onError("Error: <%= error.message %>")
+      errorHandler: notify.onError('Error: <%= error.message %>')
     }))
     .pipe(
       imagemin([
@@ -181,7 +181,7 @@ const browserSyncFunc = (done) => {
   browserSync.init({
     notify: false, //connectedのメッセージ非表示
     server: {
-      baseDir: "./"
+      baseDir: './'
     },
     reloadOnRestart: true
   });

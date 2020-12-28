@@ -58,5 +58,7 @@
     "Android >= 5",
     "not dead"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "orchestrator": "^0.3.8"
+  }
 }
